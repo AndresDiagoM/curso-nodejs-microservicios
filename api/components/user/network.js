@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const response = require('../../../network/response');
+const Controller = require('./controller');
+
 router.get('/', function(req, res) {
-    res.send('[users] Lista de mensajes');
+    const list = Controller.list();
+    response.success(req, res, list, 200);
 });
 
 module.exports = router;
