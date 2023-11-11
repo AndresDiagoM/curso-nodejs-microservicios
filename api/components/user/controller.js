@@ -1,3 +1,5 @@
+const { nanoid } = require('nanoid');
+
 const TABLA = 'user';
 
 
