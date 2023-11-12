@@ -5,7 +5,7 @@ const db = {
 };
 
 async function list (table) {
-    return db[table];
+    return db[table] || [];
 }
 
 async function get (table, id) {
@@ -35,10 +35,18 @@ async function remove (table, id) {
     return col;
 }
 
+async function query (table, q) { // q : { username: '', password: ''}
+    let col = await list(table);
+    let keys = Object.keys(q); // ['username', 'password']
+    let key = keys[0]; // 'username'
+    return col.filter(item => item[key] === q[key])[0] || null;
+}
+
 module.exports = {
     list,
     get,
     upsert,
     update,
     remove,
+    query,
 };
