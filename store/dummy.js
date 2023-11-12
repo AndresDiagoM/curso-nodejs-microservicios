@@ -18,6 +18,7 @@ async function upsert (table, data) {
         db[table] = [];
     }
     db[table].push(data);
+    console.table(db[table]);
     return db[table];
 }
 
