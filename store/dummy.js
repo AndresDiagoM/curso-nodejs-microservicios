@@ -1,6 +1,6 @@
 const db = {
     'user': [
-        { id: '1', name: 'Carlos' },
+        { id: '1', name: 'Carlos', username: 'carlos'},
     ],
 };
 
@@ -22,13 +22,6 @@ async function upsert (table, data) {
     return db[table];
 }
 
-async function update (table, data) {
-    let col = await list(table);
-    let index = col.findIndex(item => item.id === data.id);
-    col[index].name = data.name;
-    return col;
-}
-
 async function remove (table, id) {
     let col = await list(table);
     let index = col.findIndex(item => item.id === id);
@@ -40,14 +33,15 @@ async function query (table, q) { // q : { username: '', password: ''}
     let col = await list(table);
     let keys = Object.keys(q); // ['username', 'password']
     let key = keys[0]; // 'username'
-    return col.filter(item => item[key] === q[key])[0] || null;
+    let authUser = col.filter(item => item[key] === q[key])[0] || null; 
+    // {id:'', username:'', password:'hashed'}
+    return authUser;
 }
 
 module.exports = {
     list,
     get,
     upsert,
-    update,
     remove,
     query,
 };

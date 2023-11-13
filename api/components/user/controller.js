@@ -41,15 +41,6 @@ module.exports = function(injectedStore) {
         return store.upsert(TABLA, user);
     }
 
-    function update(body) {
-        const user = {
-            id: body.id,
-            name: body.name,
-        }
-
-        return store.update(TABLA, user);
-    }
-
     function remove(id) {
         return store.remove(TABLA, id);
     }
@@ -58,7 +49,6 @@ module.exports = function(injectedStore) {
         list,
         get,
         upsert,
-        update,
         remove
     };
 }

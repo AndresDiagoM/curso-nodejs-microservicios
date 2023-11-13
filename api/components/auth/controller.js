@@ -9,17 +9,16 @@ module.exports = function(injectedStore) {
     }
 
     async function login(username, password) {
-        const data = await store.query(TABLA, { username: username });
-
-        return bcrypt.compare(password, data.password)
-        .then(sonIguales => {
-            if (sonIguales) {
-                // Generar token
-                return auth.sign(data);
-            } else {
-                throw new Error('Información inválida');
-            }
-        });
+        const authUser = await store.query(TABLA, { username: username });
+        return bcrypt.compare(password, authUser.password)
+            .then(samePass => {
+                if (samePass) { 
+                    // return token
+                    return auth.sign(authUser);
+                } else {
+                    throw new Error('Incorrect information');
+                }
+            });
     }
 
     async function upsert(data) {

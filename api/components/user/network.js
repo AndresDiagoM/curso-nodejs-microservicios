@@ -7,7 +7,7 @@ const Controller = require('./index');
 router.get('/', list);
 router.get('/:id', get);
 router.post('/', upsert);
-router.put('/', update);
+router.put('/', upsert);
 router.delete('/:id', remove);
 
 // Internal functions
@@ -30,14 +30,6 @@ async function get(req, res) {
 async function upsert(req, res) {
     try{
         let user = await Controller.upsert(req.body);
-        response.success(req, res, user, 200);
-    }catch(err) {
-        response.error(req, res, err.message, 500);
-    }
-}
-async function update(req, res) {
-    try{
-        let user = await Controller.update(req.body);
         response.success(req, res, user, 200);
     }catch(err) {
         response.error(req, res, err.message, 500);
