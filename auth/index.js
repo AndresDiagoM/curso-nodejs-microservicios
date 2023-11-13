@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config');
+const error = require('../utils/error');
 
 /**
  * Returns a JWT token signed with the secret in the.env file, which expires in a certain time
@@ -34,7 +35,7 @@ const check = {
 
         // CHECK IF IT'S OWN OR ADMIN
         if(decoded.user.id !== owner){
-            throw new Error('You can\'t do this');
+            throw error('You cannot do this. Invalid token', 401);
         }
     }
 }
