@@ -2,6 +2,9 @@ const db = {
     'user': [
         { id: '1', name: 'Carlos', username: 'carlos'},
     ],
+    'auth': [
+        { id: '101', name: 'ejemplo', username:'ejemplo', password:'ONSSmC4eNrAXLK7t_fcEJ'},
+    ],
 };
 
 async function list (table) {

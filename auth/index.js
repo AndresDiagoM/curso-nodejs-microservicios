@@ -29,10 +29,13 @@ const check = {
      */
     own: function(req, owner){
         const decoded = decodeHeader(req);
-        if(decoded.payload.id == owner){
-            console.log('VERIFIED')
+        console.log("[Auth own]");
+        console.log("Decoded id:"+decoded.id+" Owner:"+owner);
+
+        // CHECK IF IT'S OWN OR ADMIN
+        if(decoded.user.id !== owner){
+            throw new Error('You can\'t do this');
         }
-        console.log(decoded);
     }
 }
 
