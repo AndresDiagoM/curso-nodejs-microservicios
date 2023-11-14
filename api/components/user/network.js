@@ -7,6 +7,7 @@ const secure = require('./secure');
 // Routes
 router.get('/', list);
 router.post('/follow', secure('follow'), follow);
+router.get('/:id/following', following);
 router.get('/:id', get);
 router.post('/', upsert);
 router.put('/', secure('update'), upsert);
@@ -53,6 +54,15 @@ async function follow(req, res, next) {
         // req.user is what the Bearer token has as payload, 
         //we asigned req.user in the auth/index.js middleware
         let data = await Controller.follow(req.user.id, req.body.follow);
+        response.success(req, res, data, 201);
+    }catch(err) {
+        next(err);
+    }
+}
+
+async function following(req, res, next) {
+    try{
+        let data = await Controller.following(req.params.id);
         response.success(req, res, data, 201);
     }catch(err) {
         next(err);

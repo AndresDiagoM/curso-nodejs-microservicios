@@ -72,8 +72,11 @@ function update(table, data){
     });
 }
 
-function upsert(table, data){
-    if(data && data.id){
+async function upsert(table, data){
+    // search if data.id exists
+    const result = await get(table, data.id);
+    console.log(result);
+    if(result.lenght === 0){
         return update(table, data);
     }else{
         return insert(table, data);
@@ -90,7 +93,11 @@ function query(table, query, join){
     return new Promise((resolve, reject) => {
         connection.query(`SELECT * FROM ${table} ${joinQuery} WHERE ${table}.?`, query, (err, res) => {
             if(err) return reject(err);
-            resolve(res[0] || null);
+            if (join) {
+                resolve(res || null)
+            } else {
+                resolve(res[0] || null)
+            }
         });
     });
 }
