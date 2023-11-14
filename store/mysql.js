@@ -114,6 +114,7 @@ function remove(table, id){
 module.exports = {
     list,
     get,
+    insert,
     upsert,
     remove,
     query,

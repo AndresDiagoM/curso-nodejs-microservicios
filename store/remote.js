@@ -73,8 +73,8 @@ function CreateRemoteDataBaseApi(host, port) {
 
     async function upsert(table, data) {
         return request({
-            method: 'PUT',
-            url: `upsert/${table}`,
+            method: 'POST',
+            url: `/${table}`,
             data
         })
     }

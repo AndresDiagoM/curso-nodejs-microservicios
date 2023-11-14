@@ -11,5 +11,5 @@ app.use(express.json())
 app.use('/', router)
 
 app.listen(config.mysqlService.port, () => {
-    console.log(`Servidor MySQL escuchando en el puerto ${config.mysqlService.port}`);
+    console.log(`\nMySQL service listening on port ${config.mysqlService.port}`);
 })
