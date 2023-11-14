@@ -35,6 +35,13 @@ const check = {
         if(decoded.user.id !== owner){
             throw error('You cannot do this. Invalid token', 401);
         }
+    },
+    token: function(req){
+        const decoded = decodeHeader(req);
+        console.log("\n[Auth token]"+" Decoded id:"+decoded.user.id);
+        if(decoded.user.id === undefined){
+            throw error('You cannot do this. Invalid token', 401);
+        }
     }
 }
 
@@ -47,7 +54,7 @@ function decodeHeader(req){
     const authorization = req.headers.authorization || '';
     const token = getToken(authorization);
     const decoded = verify(token);
-    req.user = decoded;
+    req.user = decoded.user;
     return decoded;
 }
 
