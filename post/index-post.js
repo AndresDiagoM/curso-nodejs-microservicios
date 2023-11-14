@@ -2,8 +2,8 @@ const express = require('express');
 const config = require('../config.js');
 const app = express();
 
-const post = require('./components/post/network');
-const errors = require('../network/errors');
+const post = require('./components/post/network.js');
+const errors = require('../network/errors.js');
 
 
 app.use(express.json());
