@@ -30,9 +30,7 @@ const check = {
      */
     own: function(req, owner){
         const decoded = decodeHeader(req);
-        console.log("[Auth own]");
-        console.log("Decoded id:"+decoded.id+" Owner:"+owner);
-
+        console.log("\n[Auth own]"+" Decoded id:"+decoded.user.id+" Owner:"+owner);
         // CHECK IF IT'S OWN OR ADMIN
         if(decoded.user.id !== owner){
             throw error('You cannot do this. Invalid token', 401);

@@ -21,7 +21,9 @@ module.exports = function(injectedStore) {
     async function upsert(body) {
         const user = {
             name: body.name,
+            lastname: body.lastname,
             username: body.username,
+            email: body.email,
         }
 
         if (body.id) {
