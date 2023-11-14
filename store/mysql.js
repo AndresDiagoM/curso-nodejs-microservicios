@@ -19,7 +19,7 @@ function handleCon(){
             console.error('[db err]', err);
             setTimeout(handleCon, 2000);
         }else{
-            console.log('DB Connected!');
+            console.log('[MySQL] DB Connected!');
         }
     });
 
