@@ -12,36 +12,36 @@ router.put('/', secure('update'), upsert);
 router.delete('/:id', remove);
 
 // Internal functions
-async function list(req, res) {
+async function list(req, res, next) {
     try{
         let users = await Controller.list();
         response.success(req, res, users, 200);
     }catch(err) {
-        response.error(req, res, err.message, 500);
+        next(err);
     }
 }
-async function get(req, res) {
+async function get(req, res, next) {
     try{
         let user = await Controller.get(req.params.id);
         response.success(req, res, user, 200);
     }catch(err) {
-        response.error(req, res, err.message, 500);
+        next(err);
     }
 }
-async function upsert(req, res) {
+async function upsert(req, res, next) {
     try{
         let user = await Controller.upsert(req.body);
         response.success(req, res, user, 200);
     }catch(err) {
-        response.error(req, res, err.message, 500);
+        next(err);
     }
 }
-async function remove(req, res) {
+async function remove(req, res, next) {
     try{
         let user = await Controller.remove(req.params.id);
         response.success(req, res, user, 200);
     }catch(err) {
-        response.error(req, res, err.message, 500);
+        next(err);
     }
 }
 

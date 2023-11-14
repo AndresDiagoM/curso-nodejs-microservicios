@@ -167,4 +167,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# docker and mysql
+mysql_data
+
 # End of https://www.toptal.com/developers/gitignore/api/node,windows

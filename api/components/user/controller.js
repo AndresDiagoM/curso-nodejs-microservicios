@@ -1,7 +1,7 @@
 const nanoid = require('nanoid');
 const auth = require('../auth');
 
-const TABLA = 'user';
+const TABLA = 'users';
 
 
 module.exports = function(injectedStore) {

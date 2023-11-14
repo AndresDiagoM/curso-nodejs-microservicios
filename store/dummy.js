@@ -1,5 +1,5 @@
 const db = {
-    'user': [
+    'users': [
         { id: '1', name: 'Carlos', username: 'carlos'},
     ],
     'auth': [
