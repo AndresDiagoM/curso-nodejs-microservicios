@@ -17,7 +17,19 @@ module.exports = {
         host: process.env.MYSQL_SRV_HOST || 'localhost',
         port: process.env.MYSQL_SRV_PORT || 3001,
     },
+    postgres: {
+        host: process.env.POSTGRES_HOST || 'localhost',
+        user: process.env.POSTGRES_USER || 'root',
+        password: process.env.POSTGRES_PASSWORD || 'root',
+        database: process.env.POSTGRES_DATABASE || 'platzi_social',
+    },
+    postgresService: {
+        host: process.env.POSTGRES_SRV_HOST || 'localhost',
+        port: process.env.POSTGRES_SRV_PORT || 3001,
+        URL: process.env.POSTGRES_URL || 'http://localhost:3002',
+    },
     post: {
         port: process.env.POST_PORT || 3002,
     },
+    remoteDB: process.env.REMOTE_DB || false,
 }

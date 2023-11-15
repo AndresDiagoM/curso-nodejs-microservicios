@@ -1,4 +1,7 @@
 {
+    "env": {
+        "MYSQL_HOST": "bubble.db.elephantsql.com"
+    },
     "builds": [
         {
             "src": "api/index.js",

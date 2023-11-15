@@ -19,7 +19,7 @@ function handleCon(){
             console.error('[db err]', err);
             setTimeout(handleCon, 2000);
         }else{
-            console.log('[MySQL] DB Connected!');
+            console.log('[store MySQL] DB Connected!');
         }
     });
 
@@ -76,7 +76,7 @@ async function upsert(table, data){
     // search if data.id exists
     const result = await get(table, data.id);
     console.log(result);
-    if(result.lenght === 0){
+    if(result.length === 0){
         return update(table, data);
     }else{
         return insert(table, data);

@@ -27,6 +27,7 @@ module.exports = function(injectedStore) {
         } else {
             post.id = nanoid();
         }
+        console.log('[post controller upsert()]');
         console.log(post);
         return store.upsert(TABLA, post);
     }
