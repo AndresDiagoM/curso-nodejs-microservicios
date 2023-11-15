@@ -1,6 +1,9 @@
 {
     "env": {
-        "MYSQL_HOST": "bubble.db.elephantsql.com"
+        "POSTGRES_HOST": "bubble.db.elephantsql.com",
+        "POSTGRES_USER": "jsnbqosq",
+        "POSTGRES_PASSWORD": "wLmnaIEtmoml0jRXyamlDKH9_itLisSe",
+        "POSTGRES_DATABASE": "jsnbqosq"
     },
     "builds": [
         {

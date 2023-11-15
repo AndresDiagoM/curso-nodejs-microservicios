@@ -1,7 +1,6 @@
 const express = require('express');
 const config = require('../config.js');
 const app = express();
-const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 
@@ -23,4 +22,4 @@ app.use('/api/user', user);
 app.use(errors);
 
 
-app.listen(config.api.port, () => console.log('\nAPI service running on port 3000'));
+app.listen(config.api.port, () => console.log('\nAPI service running on port: '+config.api.port));

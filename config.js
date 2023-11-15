@@ -2,7 +2,7 @@ require ('dotenv').config();
 
 module.exports = {
     api:{
-        port: process.env.API_PORT || 3000
+        port: process.env.API_PORT || 3000,
     },
     jwt: {
         secret: process.env.JWT_SECRET,
@@ -32,4 +32,8 @@ module.exports = {
         port: process.env.POST_PORT || 3002,
     },
     remoteDB: process.env.REMOTE_DB || false,
+    cacheService: {
+        host: process.env.CACHE_SRV_HOST || 'localhost',
+        port: process.env.CACHE_SRV_PORT || 3003,
+    },
 }
