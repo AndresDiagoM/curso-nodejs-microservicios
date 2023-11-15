@@ -32,7 +32,7 @@ async function get(req, res, next) {
 
 async function upsert(req, res, next) {
     try {
-        const datos = await Store.upsert(req.params.tabla);
+        const datos = await Store.upsert(req.params.tabla, req.body);
         response.success(req, res, datos, 200);
     } catch (error) {
         next(error);

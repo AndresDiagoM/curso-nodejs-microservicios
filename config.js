@@ -36,4 +36,11 @@ module.exports = {
         host: process.env.CACHE_SRV_HOST || 'localhost',
         port: process.env.CACHE_SRV_PORT || 3003,
     },
+    redis: {
+        host: process.env.REDIS_HOST || 'redis-12203.c262.us-east-1-3.ec2.cloud.redislabs.com',
+        port: process.env.REDIS_PORT || 12203,
+        password: process.env.REDIS_PASSWORD || 'RzBJFXDFby26sJTKrU8uBGPcgKie8mBh',
+        user: process.env.REDIS_USER || 'andres',
+        userPass: 'Redis_pass1000'
+    }
 }
