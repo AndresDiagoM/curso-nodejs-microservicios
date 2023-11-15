@@ -41,7 +41,7 @@ async function upsert(table, data) {
     if (data && data.id) {
         key += '_' + data.id;
     }
-    await client.set(key, JSON.stringify(data));
+    await client.set(key, JSON.stringify(data), 'EX', 10); // 3600 seconds = 1 hour
     return true;
 }
 
