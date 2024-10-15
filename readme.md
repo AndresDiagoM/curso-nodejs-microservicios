@@ -25,30 +25,26 @@ Microservices are a popular architectural style for building applications that a
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/AndresDiagoM/curso-nodejs-microservicios
-2. Navigate to the project folder:
-   ```bash
-   cd curso-nodejs-microservicios
-   ```
-3. Install the dependencies:
-   ```bash
-    npm install
-    ```
-4. Start the server:
-    ```bash
-    npm start
-    ```
+1. Clone this repository: `git clone https://github.com/AndresDiagoM/curso-nodejs-microservicios`
+2. Navigate to the project folder: `cd curso-nodejs-microservicios`
+3. Install the dependencies: `npm install`
+4. Start the server: `npm start`
 5. Open your browser and go to http://localhost:3000
 
 ## Usage
 
-To start the API server:
+This is a microservices project, so you need to run these services in different terminals. The services are:
 
-  ```bash
-  npm start
-  ```
+| Service                | Command               |
+|------------------------|-----------------------|
+| Users and Auth service | `npm run start`       |
+| MySQL service          | `npm run mysql`       |
+| Redis service          | `npm run redis`       |
+| Posts service          | `npm run posts`       |
+| PostgreSQL service     | `npm run postgres`    |
+
+You can also run the services with the command `npx nodemon .\api\modules\cache\index-cache.js` to run the cache service.
+
 Then, visit http://localhost:PORT in your browser or API tool.
 
 Star Docker container:
@@ -63,23 +59,118 @@ If you want to star the phpmyadmin interface for the database, you can do it in 
   docker-compose up -d phpmyadmin
   ```
 
-<!-- ## VERCEL DEPLOY
+### Using PM2 to run the microservices
+
+You can use PM2 to run the microservices, you can install it with the following command:
+
+  ```bash
+  npm install pm2 -g
+  ```
+
+To run a service with PM2, you need to create an ecosystem file, you can create it with the following command:
+
+  ```bash
+  pm2 start .\postgres\index-postgres.js
+  pm2 start .\mysql\index-mysql.js
+  pm2 start .\posts\index-posts.js
+  ```
+
+Then, you can run the services with the following command:
+
+  ```bash
+  pm2 start ecosystem.config.js
+  ```
+
+## VERCEL DEPLOY
 
 The project is deployed in Vercel, you can see it in the following link:
 
-[curso-nodejs-postgresql.vercel.app](https://curso-nodejs-postgresql.vercel.app/) -->
+[curso-nodejs-microservicios.vercel.app](https://curso-nodejs-microservicios.vercel.app)
+
+<details><summary>Vercel Configuration</summary>
+
+  The `vercel.json` file is used to configure the deployment settings for your project on Vercel. Below is an explanation of each section in the `vercel.json` file:
+
+  ### Environment Variables
+  The `env` section specifies environment variables that will be available to your application during runtime. These variables are used to configure the connection to your PostgreSQL database.
+
+  ```json
+  {
+      "env": {
+          "POSTGRES_HOST": "bubble.db.elephantsql.com",
+          "POSTGRES_USER": "jsnbqosq",
+          "POSTGRES_PASSWORD": "wLmnaIEtmoml0jRXyamlDKH9_itLisSe",
+          "POSTGRES_DATABASE": "jsnbqosq"
+      }
+  }
+  ```
+
+  ### Builds
+  The `builds` section defines the build configuration for your project. Each entry specifies a source file and the builder to use. In this case, the `@vercel/node` builder is used for Node.js files.
+
+  ```json
+  {
+      "builds": [
+          {
+              "src": "api/index.js",
+              "use": "@vercel/node"
+          },
+          {
+              "src": "api/post/index-post.js",
+              "use": "@vercel/node"
+          }
+      ]
+  }
+  ```
+
+  ### Routes
+
+  The `routes` section defines custom routing rules for your application. Each route specifies a source pattern and a destination file. This allows you to map incoming requests to specific files in your project.
+
+  ```json
+  {
+      "routes": [
+          {
+              "src": "/api/auth(.*)",
+              "dest": "/api/index.js"
+          },
+          {
+              "src": "/api/user(.*)",
+              "dest": "/api/index.js"
+          },
+          {
+              "src": "/api/docs(.*)",
+              "dest": "/api/index.js"
+          },
+          {
+              "src": "/api/post(.*)",
+              "dest": "api/post/index-post.js"
+          }
+      ]
+  }
+  ```
+
+  - **`/api/auth(.*)`**: Routes all requests starting with `/api/auth` to `api/index.js`.
+  - **`/api/user(.*)`**: Routes all requests starting with `/api/user` to `api/index.js`.
+  - **`/api/docs(.*)`**: Routes all requests starting with `/api/docs` to `api/index.js`.
+  - **`/api/post(.*)`**: Routes all requests starting with `/api/post` to `api/post/index-post.js`.
+
+  This configuration ensures that your API endpoints are correctly routed to the appropriate handler files.
+
+</details>
 
 
 
-## Api Endpoints
+## API Endpoints and Routes
 
-| Endpoint | HTTP Method | CRUD Method | Result |
-| -------- | ----------- | ----------- | ------ |
-| /api/users | GET | READ | get all users |
-| /api/users/:id | GET | READ | get a single user |
-| /api/users | POST | CREATE | add a user |
-| /api/users/:id | PUT | UPDATE | update a user |
-| /api/users/:id | DELETE | DELETE | delete a user |
+| Endpoint       | HTTP Method | CRUD Method | Description                | Middleware/Handler                          |
+| -------------- | ----------- | ----------- | -------------------------- | ------------------------------------------- |
+| /api/users     | GET         | READ        | Get all users              | `user`                                      |
+| /api/users/:id | GET         | READ        | Get a single user          | `user`                                      |
+| /api/users     | POST        | CREATE      | Update a user              | `user`                                      |
+| /api/users/:id | DELETE      | DELETE      | Delete a user              | `user`                                      |
+| /api/docs      | GET         | -           | Swagger API Documentation  | `swaggerUi.serve`, `swaggerUi.setup(swaggerDoc)` |
+| /api/auth      | POST        | -           | Authentication Service     | `auth`                                      |
 
 
 ## Built With
@@ -92,15 +183,18 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![JWT.io][JWT.io]][JWT-url]
 
 
-## Vercel Deploy
+## Architecture
 
-The project is deployed in Vercel, you can see it in the following link:
+The db model is the following:
 
-https://curso-nodejs-microservicios.vercel.app/
+![db model](utils/social.png)
+
 
 ## Contributing
 
 If you find any mistakes or have suggestions for improvement, please feel free to create an issue or pull request. If you create a pull request, I'll do my best to respond in a timely manner.
+
+
 
 ## License
 

@@ -1,8 +1,9 @@
-const ctrl = require('./controller');
-// const store = require('../../../store/mysql');
-// const store = require('../../../store/postgres');
+const ctrl = require("./controller");
 
-// const store = require('../../../store/remote-postgres');
-const store = require('../../../store/remote-mysql');
+// Define the db to use
+// const store = require('../../../db/mysql');
+// const store = require('../../../db/postgres');
+const store = require("../../../db/remote-postgres");
+// const store = require("../../../db/remote-mysql");
 
 module.exports = ctrl(store);

@@ -11,11 +11,16 @@
             "use": "@vercel/node"
         },
         {
-            "src": "api/post/index-post.js",
+            "src": "api/modules/post/index-post.js",
             "use": "@vercel/node"
-        }
+        },
+        { "src": "/public/**", "use": "@vercel/static" }
     ],
     "routes": [
+        {
+            "src": "/",
+            "dest": "/api/index.js"
+        },
         {
             "src": "/api/auth(.*)",
             "dest": "/api/index.js"
@@ -25,8 +30,16 @@
             "dest": "/api/index.js"
         },
         {
+            "src": "/api/docs(.*)",
+            "dest": "/api/index.js"
+        },
+        {
             "src": "/api/post(.*)",
-            "dest": "api/post/index-post.js"
+            "dest": "api/modules/post/index-post.js"
+        },
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         }
     ]
 }

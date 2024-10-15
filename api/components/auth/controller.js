@@ -1,11 +1,12 @@
 const auth = require("../../../utils/auth");
+const nanoid = require("nanoid");
 const bcrypt = require("bcrypt");
 const TABLA = "auth";
 
 module.exports = function (injectedStore) {
 	let store = injectedStore;
 	if (!store) {
-		store = require("../../../store/dummy");
+		store = require("../../../db/dummy");
 	}
 
 	async function login(username, password) {
@@ -21,6 +22,10 @@ module.exports = function (injectedStore) {
 	}
 
 	async function upsert(data) {
+		if (!data.id) {
+			data.id = nanoid();
+		}
+
 		const authData = {
 			id: data.id,
 		};

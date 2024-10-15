@@ -8,13 +8,13 @@ let store, cache;
 console.log("[user] remoteDB: ", config.remoteDB);
 
 if (config.remoteDB) {
-	store = require("../../../store/remote-mysql");
-	// store = require('../../../store/remote-postgres');
-	cache = require("../../../store/remote-cache");
+	// store = require("../../../db/remote-mysql");
+	store = require('../../../db/remote-postgres');
+	cache = require("../../../db/remote-cache");
 } else {
-	store = require("../../../store/mysql");
-	// store = require('../../../store/postgres');
-	cache = require("../../../store/redis");
+	// store = require("../../../db/mysql");
+	store = require('../../../db/postgres');
+	cache = require("../../../db/redis");
 }
 
 module.exports = ctrl(store);

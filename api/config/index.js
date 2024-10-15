@@ -1,4 +1,4 @@
-require ('dotenv').config();
+require('dotenv').config();
 
 module.exports = {
     api:{
@@ -26,7 +26,10 @@ module.exports = {
     postgresService: {
         host: process.env.POSTGRES_SRV_HOST || 'localhost',
         port: process.env.POSTGRES_SRV_PORT || 3001,
-        URL: process.env.POSTGRES_URL || 'http://localhost:3002',
+		user: process.env.POSTGRES_SRV_USER || 'root',
+		password: process.env.POSTGRES_SRV_PASSWORD || 'root',
+		database: process.env.POSTGRES_SRV_DATABASE || 'platzi_social',
+        URL: process.env.POSTGRES_SRV_URL || 'http://localhost:3002',
     },
     post: {
         port: process.env.POST_PORT || 3002,
