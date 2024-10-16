@@ -1,0 +1,22 @@
+
+
+
+### GET user 
+GET http://localhost:3000/api/user
+
+
+### GET user following
+GET http://localhost:3000/api/user/1W8PG-TeGPoBW4kahxSmu/following
+
+
+### POST user 
+POST http://localhost:3000/api/user
+Content-Type: application/json
+
+{
+    "name": "Andres",
+    "username": "andresF",
+    "password": "1234pass",
+    "email": "andresFelipe@gmail.com",
+    "role": "Admin"
+}

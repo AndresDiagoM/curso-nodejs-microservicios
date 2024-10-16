@@ -6,22 +6,27 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon api/index.js",
-    "mysql": "nodemon mysql/index.js",
+    "mysql": "nodemon mysql/index-mysql.js",
     "postgres": "nodemon postgres/index.js",
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "pm2:all": "pm2 start ecosystem.config.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.1",
+    "base-64": "^1.0.0",
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "nanoid": "^2.1.7",
     "pg": "^8.11.3",
-    "swagger-ui-express": "^5.0.0"
+    "redis": "^4.6.10",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "bcrypt": "^5.1.1",

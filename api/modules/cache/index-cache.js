@@ -10,6 +10,6 @@ app.use(express.json())
 //* RUTAS
 app.use('/', router)
 
-app.listen(config.postgresService.port, () => {
-    console.log(`\n PostgreSQL service listening on port ${config.postgresService.port}`);
+app.listen(config.cacheService.port, () => {
+    console.log(`\n Redis service listening on port ${config.cacheService.port}`);
 })

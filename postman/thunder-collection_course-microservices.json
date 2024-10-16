@@ -1,0 +1,267 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "course-microservices",
+    "collectionId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+    "dateExported": "2024-10-15T17:05:00.812Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "users",
+            "containerId": "",
+            "created": "2023-11-11T16:11:28.032Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "cc62df3d-7e4a-48f9-86a9-155cba741fc4",
+            "name": "posts",
+            "containerId": "",
+            "created": "2023-11-14T03:03:53.184Z",
+            "sortNum": 15000
+        },
+        {
+            "_id": "b62ac788-7999-4be8-8442-d4a2f4971b4e",
+            "name": "auth",
+            "containerId": "",
+            "created": "2023-11-12T14:15:11.613Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "6ce56505-9792-46e4-a08b-3c3ecd7b1c82",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "get_user",
+            "url": "http://localhost:3000/api/user",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-11-11T15:55:58.206Z",
+            "modified": "2023-11-14T17:52:59.184Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e54978a9-6347-4e02-b4e0-85f2572bdf3c",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "cc62df3d-7e4a-48f9-86a9-155cba741fc4",
+            "name": "get_posts",
+            "url": "http://localhost:3002/api/post",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-11-14T03:03:53.184Z",
+            "modified": "2023-11-14T15:43:08.922Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "012d6f06-bebd-4442-acbb-e4fcc4f957e0",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "get_users_following",
+            "url": "http://localhost:3000/api/user/1W8PG-TeGPoBW4kahxSmu/following",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-11-14T02:53:52.135Z",
+            "modified": "2023-11-14T02:54:32.597Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "46c33a6c-6f42-4a8b-831e-1c7333c7a24d",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "post_user",
+            "url": "http://localhost:3000/api/user",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-11-11T15:56:12.871Z",
+            "modified": "2023-11-14T01:45:20.614Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \n  \"name\":\"Andres\",\n  \"lastname\":\"matta\",\n  \"username\":\"andresF\",\n  \"password\": \"1234pass\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7417d02b-4da7-47b1-a242-f8b9377294b7",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "cc62df3d-7e4a-48f9-86a9-155cba741fc4",
+            "name": "post_post",
+            "url": "http://localhost:3002/api/post",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-11-14T03:03:53.186Z",
+            "modified": "2023-11-15T02:11:53.643Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"text\": \"NUEVO POST a POSTGRES REMOTE desde thunder\",\n  \"user_id\":\"2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1d172313-dc3f-4712-8b75-d6aad3d6dc06",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "post_users_follows",
+            "url": "http://localhost:3000/api/user/follow",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2023-11-14T02:18:00.366Z",
+            "modified": "2023-11-14T02:55:57.168Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"follow\": \"2\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMVc4UEctVGVHUG9CVzRrYWh4U211IiwidXNlcm5hbWUiOiJhbmRyZXNGIiwicGFzc3dvcmQiOiIkMmIkMDUkMTZmTTltMW1PZU0xSjFkMURERDdYZVVCQVVWR1J2V09PZS83ODZMam82UmJ0dDdibDgxS20ifSwiaWF0IjoxNjk5OTMwNTQzLCJleHAiOjE2OTk5MzE0NDN9.86xjIWySb6IecN13fRi09jl10plsTqqpqcSaja9geMw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eb3d394d-0f22-4239-a763-bf17ed669542",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "PUT_user",
+            "url": "http://localhost:3000/api/user",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-11-11T16:11:35.974Z",
+            "modified": "2023-11-14T01:55:47.422Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"1W8PG-TeGPoBW4kahxSmu\",\n  \"name\":\"Felipe\",\n  \"lastname\":\"matta\",\n  \"username\":\"andresF\",\n  \"email\": \"matta1@mail.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMVc4UEctVGVHUG9CVzRrYWh4U211IiwidXNlcm5hbWUiOiJhbmRyZXNGIiwicGFzc3dvcmQiOiIkMmIkMDUkMTZmTTltMW1PZU0xSjFkMURERDdYZVVCQVVWR1J2V09PZS83ODZMam82UmJ0dDdibDgxS20ifSwiaWF0IjoxNjk5OTI2NjcxLCJleHAiOjE2OTk5Mjc1NzF9.WeqCIjgU9XMhTGd6zgqrQfJncNxC5p5wN_v230mi_zk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f85d6b19-88c2-4c98-b11d-d11354b95244",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "cc62df3d-7e4a-48f9-86a9-155cba741fc4",
+            "name": "PUT_user",
+            "url": "http://localhost:3000/api/user",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-11-14T03:03:53.188Z",
+            "modified": "2023-11-14T03:03:53.184Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": \"1W8PG-TeGPoBW4kahxSmu\",\n  \"name\":\"Felipe\",\n  \"lastname\":\"matta\",\n  \"username\":\"andresF\",\n  \"email\": \"matta1@mail.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMVc4UEctVGVHUG9CVzRrYWh4U211IiwidXNlcm5hbWUiOiJhbmRyZXNGIiwicGFzc3dvcmQiOiIkMmIkMDUkMTZmTTltMW1PZU0xSjFkMURERDdYZVVCQVVWR1J2V09PZS83ODZMam82UmJ0dDdibDgxS20ifSwiaWF0IjoxNjk5OTI2NjcxLCJleHAiOjE2OTk5Mjc1NzF9.WeqCIjgU9XMhTGd6zgqrQfJncNxC5p5wN_v230mi_zk"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c3c4bb0f-3ab6-400f-b8ca-213e0adbc4dc",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "f6047e09-ded5-4e3d-9a1d-c08c6a2cfb3b",
+            "name": "DELETE_user",
+            "url": "http://localhost:3000/api/user/2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-11-11T16:12:32.358Z",
+            "modified": "2023-11-11T16:12:52.328Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0d945199-5656-4305-ac67-becb1ed95fc8",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "cc62df3d-7e4a-48f9-86a9-155cba741fc4",
+            "name": "DELETE_user",
+            "url": "http://localhost:3000/api/user/2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-11-14T03:03:53.189Z",
+            "modified": "2023-11-14T03:03:53.184Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7e2e275d-8ab6-44ad-9404-7e0c8bef80cc",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "b62ac788-7999-4be8-8442-d4a2f4971b4e",
+            "name": "post_login",
+            "url": "http://localhost:3000/api/auth/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-11-12T14:15:27.630Z",
+            "modified": "2023-11-13T23:32:36.856Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"andresF\",\n  \"password\": \"1234pass\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d35eddaf-3c85-4c4b-9ea5-b0e516362fa9",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "",
+            "name": "mysql",
+            "url": "http://localhost:3001/users",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-11-14T03:58:28.152Z",
+            "modified": "2023-11-15T03:26:52.139Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"text\": \"NUEVO POST a POSTGRES REMOTE desde thunder\",\n  \"user_id\":\"2\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "515ac3a9-280e-4bda-950e-dd12830f6422",
+            "colId": "b0c9590f-a91c-431a-b68b-55b605db477b",
+            "containerId": "",
+            "name": "redis",
+            "url": "http://localhost:3003/user",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-11-15T03:52:36.636Z",
+            "modified": "2023-11-15T04:39:33.834Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"andres\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "ref": "2IsJOkH0Ptqfx650BpM5r4UbkxnW2FxEA4WdNqMZ-NOIlyFcSI2cBSlJMdjx0lv2DYgZJMewNZcN15uFpO9c0g"
+}

@@ -1,0 +1,23 @@
+@hostname = http://localhost:3000/api
+# @hostname = https://curso-nodejs-microservicios.vercel.app/api
+# @accessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlMDIyODk5Zjg4MzIzYmQ1MjZlZDUiLCJmaXJzdE5hbWUiOiJBbmRyZXMiLCJsYXN0TmFtZSI6IkZlbGlwZURpYWdvIiwiZW1haWwiOiJmZWxpcGUuZGlhZ29AdGhlYml0YmFuZy5jb21wYW55Iiwicm9sZSI6IkFkbWluaXN0cmFkb3IiLCJpYXQiOjE3MTg5MTY4MDUsImV4cCI6MTcxODkyMDQwNX0.n0lCfYq4MCfWEos-XgZandigOGE9PHR_zI2IaThPdEg
+# @refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NWRlMDIyODk5Zjg4MzIzYmQ1MjZlZDUiLCJmaXJzdE5hbWUiOiJBbmRyZXMiLCJsYXN0TmFtZSI6IkZlbGlwZURpYWdvIiwiZW1haWwiOiJmZWxpcGUuZGlhZ29AdGhlYml0YmFuZy5jb21wYW55Iiwicm9sZSI6IkFkbWluaXN0cmFkb3IiLCJpYXQiOjE3MTkyMzg4NTIsImV4cCI6MTcxOTg0MzY1Mn0.HpCEiyNCOQwt8eOYXP-MF90I3iXuwIz2bPg5Jmk2Udo
+
+### POST login
+POST {{hostname}}/auth/login 
+Content-Type: application/json
+
+{
+  "username": "andresF",
+  "password": "1234pass"
+}
+
+
+### POST create
+POST {{hostname}}/auth/create 
+Content-Type: application/json
+
+{
+  "username": "andresF",
+  "password": "1234pass"
+}
